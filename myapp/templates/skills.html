@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Skills{% endblock %}
+
+{% block content %}
+
+<section class="py-5 mt-5">
+
+    <div class="container">
+
+        <!-- Heading -->
+        <div class="text-center mb-5">
+
+            <h5 class="text-info">MY SKILLS</h5>
+
+            <h1 class="fw-bold">Technical Skills</h1>
+
+            <p class="text-secondary">
+                These are the technologies I work with.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            {% for skill in skills %}
+
+            <div class="col-lg-6">
+
+                <div class="card bg-dark border-0 shadow-lg p-4 h-100">
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+
+                        <h5 class="mb-0 text-white">
+
+                            {% if skill.icon %}
+                                <i class="{{ skill.icon }} text-info me-2"></i>
+                            {% endif %}
+
+                            {{ skill.name }}
+
+                        </h5>
+
+                        <span class="text-info fw-bold">
+
+                            {{ skill.percentage }}%
+
+                        </span>
+
+                    </div>
+
+                    <div class="progress" style="height:10px;">
+
+                        <div class="progress-bar bg-info"
+                             role="progressbar"
+                             style="width: {{ skill.percentage }}%"
+                             aria-valuenow="{{ skill.percentage }}"
+                             aria-valuemin="0"
+                             aria-valuemax="100">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12 text-center">
+
+                <h3 class="text-white">No Skills Added Yet</h3>
+
+                <p class="text-secondary">
+                    Please add skills from the Django Admin Panel.
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+About
+{% endblock %}
+
+{% block content %}
+
+<section class="about-section py-5 ">
+
+    <div class="container pt-5">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-5 text-center">
+
+                <img src="{% static 'images/profile.jpg' %}" class="about-image">
+
+            </div>
+
+            <div class="col-lg-7">
+
+                <h5 class="text-info">
+                    ABOUT ME
+                </h5>
+
+                <h2 class="fw-bold mb-4">
+                    Passionate Python & Django Developer
+                </h2>
+
+                <p class="about-text">
+
+                    Hello! I'm <strong>Shreyansh Upadhyay</strong>, a Diploma student in Information Technology. I enjoy
+                    creating responsive and dynamic web applications using Django, Python, HTML, CSS, Bootstrap, and
+                    JavaScript.
+
+                </p>
+
+                <div class="row mt-4">
+
+                    <div class="col-md-6">
+
+                        <p>🎓 <strong>Education:</strong></p>
+
+                        <p class="text-secondary">
+                            Diploma in IT
+                        </p>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <p>📍 <strong>Location:</strong></p>
+
+                        <p class="text-secondary">
+                            Jaunpur , Uttar Pradesh, India
+                        </p>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <p>💻 <strong>Experience:</strong></p>
+
+                        <p class="text-secondary">
+                            Django Projects
+                        </p>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <p>🎯 <strong>Goal:</strong></p>
+
+                        <p class="text-secondary">
+                            Full Stack Developer
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h5 class="text-info">
+                EDUCATION
+            </h5>
+
+            <h2>
+                My Education
+            </h2>
+
+        </div>
+
+        <div class="row">
+
+            {% for edu in educations %}
+
+            <div class="col-lg-6 mb-4">
+
+                <div class="card bg-dark text-white shadow-lg border-0 h-100">
+
+                    <div class="card-body">
+
+                        <h4>{{ edu.degree }}</h4>
+
+                        <h6 class="text-info">
+                            {{ edu.institute }}
+                        </h6>
+
+                        <p>
+
+                            {{ edu.branch }}
+
+                        </p>
+
+                        <p>
+
+                            {{ edu.start_year }}
+                            -
+                            {{ edu.end_year }}
+
+                        </p>
+
+                        <p>
+
+                            Percentage / CGPA :
+                            {{ edu.percentage }}
+
+                        </p>
+
+                        <p>
+
+                            {{ edu.description }}
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12 text-center">
+
+                <h3>No Education Added Yet</h3>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+
+<section class="contact-section mt-5">
+
+    <div class="container pt-5">
+
+        <div class="text-center mb-5">
+
+            <h5 class="text-info">CONTACT ME</h5>
+
+            <h1 class="fw-bold">Let's Work Together</h1>
+
+            <p class="text-secondary">
+                Have a project idea or internship opportunity? Feel free to contact me.
+            </p>
+
+        </div>
+
+        <div class="row">
+
+            <!-- Left Side -->
+
+            <div class="col-lg-5">
+
+                <div class="contact-info">
+
+                    <h3 class="mb-4">Get In Touch</h3>
+
+                    <div class="info-box">
+
+                        <i class="bi bi-envelope-fill"></i>
+
+                        <div>
+
+                            <h5>Email</h5>
+
+                            <p>upadhyayshreyansh629@gmail.com</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="info-box">
+
+                        <i class="bi bi-telephone-fill"></i>
+
+                        <div>
+
+                            <h5>Phone</h5>
+
+                            <p>+91 9026898965</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="info-box">
+
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                        <div>
+
+                            <h5>Location</h5>
+
+                            <p>Jaunpur ,Uttar Pradesh, India</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="social-icons mt-4">
+
+                        <a href="#"><i class="bi bi-github"></i></a>
+
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+
+                        <a href="https://www.instagram.com/shr3yansh.x_?igsh=MXRpeHMzZ3V3ZHVhOQ=="><i
+                                class="bi bi-instagram"></i></a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Right Side -->
+
+            <div class="col-lg-7">
+
+                <div class="contact-form">
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        <input type="text" name="name" class="form-control mb-3" placeholder="Your Name">
+
+                        <input type="email" name="email" class="form-control mb-3" placeholder="Your Email">
+
+                        <input type="text" name="subject" class="form-control mb-3" placeholder="Subject">
+
+                        <textarea name="message" rows="6" class="form-control mb-3" placeholder="Message"></textarea>
+
+                        <button class="btn btn-info w-100">
+                            Send Message
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

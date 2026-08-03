@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Certificates{% endblock %}
+
+{% block content %}
+
+<section class="py-5 mt-5">
+
+    <div class="container">
+
+        <!-- Heading -->
+        <div class="text-center mb-5">
+
+            <h5 class="text-info">MY CERTIFICATES</h5>
+
+            <h1 class="fw-bold">Achievements & Certifications</h1>
+
+            <p class="text-secondary">
+                Here are some of the certifications I have earned.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            {% for certificate in certificates %}
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="card bg-dark border-0 shadow-lg h-100">
+
+                    {% if certificate.image %}
+                    <img src="{{ certificate.image.url }}"
+                         class="card-img-top"
+                         alt="{{ certificate.title }}"
+                         style="height:220px; object-fit:cover;">
+                    {% else %}
+                    <img src="{% static 'images/no-image.png' %}"
+                         class="card-img-top"
+                         alt="No Image"
+                         style="height:220px; object-fit:cover;">
+                    {% endif %}
+
+                    <div class="card-body">
+
+                        <h4 class="text-white">
+                            {{ certificate.title }}
+                        </h4>
+
+                        <p class="text-info mb-1">
+                            {{ certificate.issued_by }}
+                        </p>
+
+                        <small class="text-secondary">
+                            Issued on: {{ certificate.issue_date }}
+                        </small>
+
+                    </div>
+
+                    <div class="card-footer bg-transparent border-0 pb-3">
+
+                        {% if certificate.certificate_link %}
+                        <a href="{{ certificate.certificate_link }}"
+                           target="_blank"
+                           class="btn btn-info w-100">
+
+                            View Certificate
+
+                        </a>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12 text-center">
+
+                <h3 class="text-white">
+                    No Certificates Added Yet
+                </h3>
+
+                <p class="text-secondary">
+                    Please add certificates from Django Admin.
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
