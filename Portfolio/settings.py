@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    "cloudinary_storage",
+    "cloudinary",
     'django.contrib.staticfiles',
     'myapp',
 ]
@@ -137,3 +139,14 @@ EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+import cloudinary
+
+cloudinary.config(
+    cloud_name=os.environ.get("t8ofsppt"),
+    api_key=os.environ.get("678667269133962"),
+    api_secret=os.environ.get("lLwBRE9a4j0e3Vl2XAdJtuaxb8Q"),
+    secure=True,
+)
+
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
