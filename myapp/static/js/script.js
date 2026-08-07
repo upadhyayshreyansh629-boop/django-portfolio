@@ -1,10 +1,13 @@
 // Typing Animation
 
 const words = [
-    "Python Developer",
-    "Django Developer",
+    "HTML",
+    "CSS",
+    "JS",
     "Frontend Developer",
-    "Backend Developer"
+    "Backend Developer",
+    "Python Learner",
+    "Django Learner",
 ];
 
 let wordIndex = 0;
