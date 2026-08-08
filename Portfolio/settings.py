@@ -179,16 +179,14 @@ USE_TZ = True
 # STATIC FILES
 # =========================================================
 
-STATIC_URL = "/static/"
-
+STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
-
 
 # =========================================================
 # MEDIA FILES
 # =========================================================
 
-MEDIA_URL = "/media/"
+MEDIA_URL = "media/"
 
 MEDIA_ROOT = BASE_DIR / "media"
 
@@ -232,15 +230,7 @@ if (
 
 if CLOUDINARY_STORAGE["CLOUD_NAME"]:
 
-    STORAGES = {
-        "default": {
-            "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
-        },
-        "staticfiles": {
-            "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
-        },
-    }
-
+   STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 else:
 
     STORAGES = {
